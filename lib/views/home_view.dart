@@ -52,7 +52,16 @@ class _HomeViewState extends State<HomeView> {
             )
           ],
         ),
-        actions: const [],
+        actions: [
+          IconButton(
+            padding: EdgeInsets.zero,
+            onPressed: null,
+            icon: Image.asset(
+              "assets/images/Group 1.png",
+            ),
+            iconSize: 100,
+          )
+        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -394,6 +403,417 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ],
                       ),
+                    ),
+                    SizedBox(
+                      height: Utils.getScreenHeightByPercentage(4),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "LMTD v/s MTD",
+                          style: GoogleFonts.notoSans(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w400,
+                              color: const Color(0xff323139)),
+                        ),
+                        Container(
+                          height: 32,
+                          width: 151,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: AppTheme.secondaryColor,
+                            ),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text(
+                                "8 Mar - 23 Mar",
+                                style: GoogleFonts.notoSans(
+                                  color: AppTheme.secondaryColor,
+                                ),
+                              ),
+                              Container(
+                                height: 19,
+                                width: 19,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: AppTheme.secondaryColor,
+                                  ),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: const Center(
+                                  child: Icon(
+                                    Icons.expand_more,
+                                    size: 17,
+                                    color: AppTheme.secondaryColor,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: Utils.getScreenHeightByPercentage(3),
+                    ),
+                    _customContainer(
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "LMTD",
+                                style: GoogleFonts.notoSans(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff323139),
+                                ),
+                              ),
+                              Text(
+                                "Products",
+                                style: GoogleFonts.notoSans(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff323139),
+                                ),
+                              ),
+                              Text(
+                                "MTD",
+                                style: GoogleFonts.notoSans(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff323139),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: Utils.getScreenHeightByPercentage(2),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "45%",
+                                style: GoogleFonts.notoSans(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff323139),
+                                ),
+                              ),
+                              Text(
+                                "DMT",
+                                style: GoogleFonts.notoSans(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff323139),
+                                ),
+                              ),
+                              Text(
+                                "55%",
+                                style: GoogleFonts.notoSans(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff323139),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: Utils.getScreenHeightByPercentage(2),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              RotatedBox(
+                                quarterTurns: 2,
+                                child: SliderTheme(
+                                  data: SliderTheme.of(context).copyWith(
+                                    overlayShape:
+                                        SliderComponentShape.noOverlay,
+                                    trackHeight: 4,
+                                    thumbColor: Colors.transparent,
+                                    thumbShape: const RoundSliderThumbShape(
+                                      enabledThumbRadius: 0.0,
+                                    ),
+                                  ),
+                                  child: Slider(
+                                    value: 40,
+                                    max: 100,
+                                    min: 0,
+                                    activeColor: AppTheme.primaryColor,
+                                    inactiveColor: const Color(0xffE4D8EF),
+                                    onChanged: (double value) {},
+                                  ),
+                                ),
+                              ),
+                              SliderTheme(
+                                data: SliderTheme.of(context).copyWith(
+                                  overlayShape: SliderComponentShape.noOverlay,
+                                  trackHeight: 4,
+                                  thumbColor: Colors.transparent,
+                                  thumbShape: const RoundSliderThumbShape(
+                                    enabledThumbRadius: 0.0,
+                                  ),
+                                ),
+                                child: Slider(
+                                  value: 55,
+                                  max: 100,
+                                  min: 0,
+                                  activeColor: AppTheme.secondaryColor,
+                                  inactiveColor: const Color(0xffE4D8EF),
+                                  onChanged: (double value) {},
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: Utils.getScreenHeightByPercentage(2),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "15%",
+                                style: GoogleFonts.notoSans(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff323139),
+                                ),
+                              ),
+                              Text(
+                                "MATM",
+                                style: GoogleFonts.notoSans(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff323139),
+                                ),
+                              ),
+                              Text(
+                                "4%",
+                                style: GoogleFonts.notoSans(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff323139),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: Utils.getScreenHeightByPercentage(2),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              RotatedBox(
+                                quarterTurns: 2,
+                                child: SliderTheme(
+                                  data: SliderTheme.of(context).copyWith(
+                                    overlayShape:
+                                        SliderComponentShape.noOverlay,
+                                    trackHeight: 4,
+                                    thumbColor: Colors.transparent,
+                                    thumbShape: const RoundSliderThumbShape(
+                                      enabledThumbRadius: 0.0,
+                                    ),
+                                  ),
+                                  child: Slider(
+                                    value: 40,
+                                    max: 100,
+                                    min: 0,
+                                    activeColor: AppTheme.primaryColor,
+                                    inactiveColor: const Color(0xffE4D8EF),
+                                    onChanged: (double value) {},
+                                  ),
+                                ),
+                              ),
+                              SliderTheme(
+                                data: SliderTheme.of(context).copyWith(
+                                  overlayShape: SliderComponentShape.noOverlay,
+                                  trackHeight: 4,
+                                  thumbColor: Colors.transparent,
+                                  thumbShape: const RoundSliderThumbShape(
+                                    enabledThumbRadius: 0.0,
+                                  ),
+                                ),
+                                child: Slider(
+                                  value: 55,
+                                  max: 100,
+                                  min: 0,
+                                  activeColor: AppTheme.secondaryColor,
+                                  inactiveColor: const Color(0xffE4D8EF),
+                                  onChanged: (double value) {},
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: Utils.getScreenHeightByPercentage(2),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "65%",
+                                style: GoogleFonts.notoSans(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff323139),
+                                ),
+                              ),
+                              Text(
+                                "Banking",
+                                style: GoogleFonts.notoSans(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff323139),
+                                ),
+                              ),
+                              Text(
+                                "12%",
+                                style: GoogleFonts.notoSans(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff323139),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: Utils.getScreenHeightByPercentage(2),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              RotatedBox(
+                                quarterTurns: 2,
+                                child: SliderTheme(
+                                  data: SliderTheme.of(context).copyWith(
+                                    overlayShape:
+                                        SliderComponentShape.noOverlay,
+                                    trackHeight: 4,
+                                    thumbColor: Colors.transparent,
+                                    thumbShape: const RoundSliderThumbShape(
+                                      enabledThumbRadius: 0.0,
+                                    ),
+                                  ),
+                                  child: Slider(
+                                    value: 65,
+                                    max: 100,
+                                    min: 0,
+                                    activeColor: AppTheme.primaryColor,
+                                    inactiveColor: const Color(0xffE4D8EF),
+                                    onChanged: (double value) {},
+                                  ),
+                                ),
+                              ),
+                              SliderTheme(
+                                data: SliderTheme.of(context).copyWith(
+                                  overlayShape: SliderComponentShape.noOverlay,
+                                  trackHeight: 4,
+                                  thumbColor: Colors.transparent,
+                                  thumbShape: const RoundSliderThumbShape(
+                                    enabledThumbRadius: 0.0,
+                                  ),
+                                ),
+                                child: Slider(
+                                  value: 12,
+                                  max: 100,
+                                  min: 0,
+                                  activeColor: AppTheme.secondaryColor,
+                                  inactiveColor: const Color(0xffE4D8EF),
+                                  onChanged: (double value) {},
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: Utils.getScreenHeightByPercentage(2),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "12%",
+                                style: GoogleFonts.notoSans(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff323139),
+                                ),
+                              ),
+                              Text(
+                                "BBPS",
+                                style: GoogleFonts.notoSans(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff323139),
+                                ),
+                              ),
+                              Text(
+                                "48%",
+                                style: GoogleFonts.notoSans(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff323139),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: Utils.getScreenHeightByPercentage(2),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              RotatedBox(
+                                quarterTurns: 2,
+                                child: SliderTheme(
+                                  data: SliderTheme.of(context).copyWith(
+                                    overlayShape:
+                                        SliderComponentShape.noOverlay,
+                                    trackHeight: 4,
+                                    thumbColor: Colors.transparent,
+                                    thumbShape: const RoundSliderThumbShape(
+                                      enabledThumbRadius: 0.0,
+                                    ),
+                                  ),
+                                  child: Slider(
+                                    value: 12,
+                                    max: 100,
+                                    min: 0,
+                                    activeColor: AppTheme.primaryColor,
+                                    inactiveColor: const Color(0xffE4D8EF),
+                                    onChanged: (double value) {},
+                                  ),
+                                ),
+                              ),
+                              SliderTheme(
+                                data: SliderTheme.of(context).copyWith(
+                                  overlayShape: SliderComponentShape.noOverlay,
+                                  trackHeight: 4,
+                                  thumbColor: Colors.transparent,
+                                  thumbShape: const RoundSliderThumbShape(
+                                    enabledThumbRadius: 0.0,
+                                  ),
+                                ),
+                                child: Slider(
+                                  value: 48,
+                                  max: 100,
+                                  min: 0,
+                                  activeColor: AppTheme.secondaryColor,
+                                  inactiveColor: const Color(0xffE4D8EF),
+                                  onChanged: (double value) {},
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     )
                   ],
                 ),
@@ -480,7 +900,7 @@ class _HomeViewState extends State<HomeView> {
 
 //svg of notification icon
   Widget notificationSvg = SvgPicture.asset(
-    "assets/svg/notification-icon.svg",
+    "assets/svg/not-icon.svg",
     height: 20,
   );
 
