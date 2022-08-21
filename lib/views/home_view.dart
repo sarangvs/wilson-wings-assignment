@@ -5,8 +5,21 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:wilson_wings_test/themes/theme.dart';
 import 'package:wilson_wings_test/utils/utils.dart';
 
-class HomeView extends StatelessWidget {
-  HomeView({Key? key}) : super(key: key);
+class HomeView extends StatefulWidget {
+  const HomeView({Key? key}) : super(key: key);
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  late List<ExpenseData> _chartData;
+
+  @override
+  void initState() {
+    super.initState();
+    _chartData = getExpenseData();
+  }
 
   TextEditingController searchController = TextEditingController();
 
@@ -351,7 +364,33 @@ class HomeView extends StatelessWidget {
                       child: Column(
                         children: [
                           Expanded(
-                            child: SfCartesianChart(),
+                            child: SfCartesianChart(
+                              series: <ChartSeries>[
+                                StackedAreaSeries<ExpenseData, String>(
+                                  dataSource: _chartData,
+                                  xValueMapper: (ExpenseData exp, _) =>
+                                      exp.expenseCategory,
+                                  yValueMapper: (ExpenseData exp, _) =>
+                                      exp.oneThousand,
+                                  name: "first",
+                                  markerSettings: const MarkerSettings(
+                                    isVisible: true,
+                                  ),
+                                ),
+                                StackedAreaSeries<ExpenseData, String>(
+                                  dataSource: _chartData,
+                                  xValueMapper: (ExpenseData exp, _) =>
+                                      exp.expenseCategory,
+                                  yValueMapper: (ExpenseData exp, _) =>
+                                      exp.oneThousand,
+                                  name: "second",
+                                  markerSettings: const MarkerSettings(
+                                    isVisible: true,
+                                  ),
+                                )
+                              ],
+                              primaryXAxis: CategoryAxis(),
+                            ),
                           ),
                         ],
                       ),
@@ -371,42 +410,42 @@ class HomeView extends StatelessWidget {
       ExpenseData(
         expenseCategory: 'Mar 8',
         eightyThousand: 33,
-        oneLakh: 45,
-        oneThousand: 36,
-        sixtyThousand: 65,
-        tenThousand: 26,
+        oneLakh: 34,
+        oneThousand: 28,
+        sixtyThousand: 25,
+        tenThousand: 23,
       ),
       ExpenseData(
-        expenseCategory: 'Mar 8',
-        eightyThousand: 33,
-        oneLakh: 45,
-        oneThousand: 36,
-        sixtyThousand: 65,
-        tenThousand: 26,
+        expenseCategory: 'Mar 9',
+        eightyThousand: 28,
+        oneLakh: 26,
+        oneThousand: 34,
+        sixtyThousand: 32,
+        tenThousand: 25,
       ),
       ExpenseData(
         expenseCategory: 'Mar 13',
-        eightyThousand: 33,
-        oneLakh: 45,
-        oneThousand: 36,
-        sixtyThousand: 65,
-        tenThousand: 26,
+        eightyThousand: 24,
+        oneLakh: 25,
+        oneThousand: 30,
+        sixtyThousand: 32,
+        tenThousand: 23,
       ),
       ExpenseData(
         expenseCategory: 'Mar 18',
-        eightyThousand: 33,
-        oneLakh: 45,
-        oneThousand: 36,
-        sixtyThousand: 65,
-        tenThousand: 26,
+        eightyThousand: 72,
+        oneLakh: 76,
+        oneThousand: 73,
+        sixtyThousand: 75,
+        tenThousand: 70,
       ),
       ExpenseData(
         expenseCategory: 'Mar 23',
-        eightyThousand: 33,
-        oneLakh: 45,
-        oneThousand: 36,
-        sixtyThousand: 65,
-        tenThousand: 26,
+        eightyThousand: 34,
+        oneLakh: 26,
+        oneThousand: 30,
+        sixtyThousand: 25,
+        tenThousand: 23,
       ),
     ];
     return chartData;
@@ -486,9 +525,9 @@ class ExpenseData {
       this.tenThousand,
       this.oneLakh});
   final String? expenseCategory;
-  final int? oneThousand;
-  final int? tenThousand;
-  final int? sixtyThousand;
-  final int? eightyThousand;
-  final int? oneLakh;
+  final num? oneThousand;
+  final num? tenThousand;
+  final num? sixtyThousand;
+  final num? eightyThousand;
+  final num? oneLakh;
 }
